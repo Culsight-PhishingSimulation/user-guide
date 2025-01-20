@@ -1,0 +1,51 @@
+<h1 id="creating-the-template">Creating the Template</h1>
+<p>To create the template we will use for our Morning Catch campaign,
+first navigate to the “Email Templates” page and click the “New
+Template” button.</p>
+<figure>
+<img src="https://imgur.com/FPqcZOG.png" alt="New Template Dialog" />
+<figcaption aria-hidden="true">New Template Dialog</figcaption>
+</figure>
+<p>We notice that Morning Catch comes with a webmail portal. Let’s craft
+a simple template that suggests the user needs to go reset their
+password. Obviously, this is a simple scenario, and by using the “Import
+Email” feature, you can import existing emails directly into gophish for
+a greater effect.</p>
+<p>We’ll use the following subject line:</p>
+<pre class="text"><code>Password Reset for {{.Email}}</code></pre>
+<p>You’ll notice we used the <code>{{.Email}}</code> template value.
+This will populate with the target’s email address when the emails are
+sent. This is Gophish’s way to tailor emails to individuals to increase
+the chance of success.</p>
+<p>By clicking the “HTML” tab, we will see the editor we can use to
+create our HTML content:</p>
+<figure>
+<img src="https://imgur.com/rZN827r.png" alt="HTML Editor" />
+<figcaption aria-hidden="true">HTML Editor</figcaption>
+</figure>
+<p>Since our content is pretty simple, we can just click the “Source”
+button and be taken to the more visual editor, which will be enough for
+our purposes:</p>
+<figure>
+<img src="https://imgur.com/elue6xK.png" alt="Visual Editor" />
+<figcaption aria-hidden="true">Visual Editor</figcaption>
+</figure>
+<p>Our template will be simple for the sake of demonstration. I’ll start
+by adding the message:</p>
+<pre class="text"><code>{{.FirstName}},
+
+The password for {{.Email}} has expired. Please reset your password here.
+
+Thanks,
+Morning Catch IT Team</code></pre>
+<p>Speaking of links, now we need to add our phishing link. Highlight
+the word “here” and click the chain icon in the menu, exposing the
+“Link” dialog. In this dialog, we’ll set the link to
+<code>{{.URL}}</code>, another template value, so that our link is
+automatically created and inserted into the email.</p>
+<figure>
+<img src="http://imgur.com/sWLOxbg.png" alt="Link Menu" />
+<figcaption aria-hidden="true">Link Menu</figcaption>
+</figure>
+<p>Finally, make sure the “Add Tracking Image” checkbox is checked, and
+click “Save Template”.</p>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Culsight Phishing Simulator">
+    <meta name="author" content="Viir Phuria (https://github.com/Viir-Phuria)">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>Campaigns | User Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Left Sidebar -->
+    <div class="navbar-left">
+        <img src="images/Culsight.png" alt="Culsight Logo" height="50px">
+        <h2>User Guide</h2>
+        <ul class="nav-links-left">
+            <li><a href="introduction.html">Introduction</a></li>
+            <li><a href="license.html">License</a></li>
+            <li><a href="what-is-culsight.html">What is Culsight - Phishing Simulation?</a></li>
+            <li><a href="installation.html">Installation</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li>
+                <button class="dropdown-toggle">Documentation 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="changing-user-settings.html">Changing Account Settings</a></li>
+                    <li><a href="groups.html">Groups</a></li>
+                    <li><a href="templates.html">Templates</a></li>
+                    <li><a href="attachments.html">Attachment Tracking</a></li>
+                    <li><a href="landing-pages.html">Landing Pages</a></li>
+                    <li><a href="sending-profiles.html">Sending Profiles</a></li>
+                    <li><a href="campaigns.html">Campaigns</a></li>
+                    <li><a href="using-the-api.html">Using the API</a></li>
+                    <li><a href="generating-reports.html">Generating Reports</a></li>
+                    <li><a href="email-reporting.html">Email Reporting</a></li>
+                    <li><a href="webhooks.html">Webhooks</a></li>
+                    <li><a href="user-management.html">User Management</a></li>
+                    <li><a href="logging.html">Logging</a></li>
+                </ul>
+            </li>
+            <li>
+                <button class="dropdown-toggle">Building Your First Campaign 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="morning-catch-corporation.html">Introducing the Morning Catch Corporation</a></li>
+                    <li><a href="creating-sending-profile.html">Creating the Sending Profile</a></li>
+                    <li><a href="importing-groups.html">Importing Groups</a></li>
+                    <li><a href="creating-template.html">Creating the Template</a></li>
+                    <li><a href="creating-landing-page.html">Creating the Landing Page</a></li>
+                    <li><a href="launching-campaign.html">Launching the Campaign</a></li>
+                </ul>
+            </li>
+            <li><a href="template-reference.html">Template Reference</a></li>
+            <li><a href="additional-references.html">Additional References</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+        <!-- Right Sidebar (dynamic per page) -->
+        <div class="navbar-right">
+            <ul class="nav-links-right">
+                <li><a href="#launching-a-campaign">Launching a Campaign</a></li>
+                <li><a href="#scheduling-campaigns">Scheduling Campaigns</a></li>
+                <li><a href="#launching-the-campaign">Launching the Campaign</a></li>
+                <li><a href="#viewing-campaign-results">Viewing Campaign Results</a></li>
+                <li><a href="#exporting-campaign-results">Exporting Campaign Results</a></li>
+                <li><a href="#completing-a-campaign">Completing a Campaign</a></li>
+                <li><a href="#deleting-a-campaign">Deleting a Campaign</a></li>
+                <li><a href="#viewing-result-details">Viewing Result Details</a></li>
+            </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="container">
+            <h1 id="campaigns">Campaigns</h1>
+            <p>Culsight - Phishing Simulation is centered around launching campaigns. This involves sending
+                emails to one or more groups and monitoring for opened emails, clicked
+                links, or submitted credentials.</p>
+            <h2 id="launching-a-campaign">Launching a Campaign</h2>
+            <p>To configure and launch a campaign, click the “Campaigns” entry in
+                the navigation sidebar.</p>
+            <figure>
+                <img src="images/Newcampaign.png" height="700px" alt="New campaign dialog" />
+                <figcaption aria-hidden="true">New campaign dialog</figcaption>
+            </figure>
+            <p>Setting up a campaign requires the following fields to be
+                provided:</p>
+            <ul>
+                <li><strong>Name</strong> - The name of the campaign</li>
+                <li><strong>Email Template</strong> - The email that is sent to campaign
+                    recipients. This is created in the <a href="templates.html">Email
+                        Templates</a> section of the documentation.</li>
+                <li><strong>Landing Page</strong> - The HTML that is returned when a
+                    recipient clicks the link in the email template. This is created in the
+                    <a href="landing-pages.html">Landing Pages</a> section of the
+                    documentation.
+                </li>
+                <li><strong>URL</strong> - This is the URL that populates the
+                    <code>{{.URL}}</code> template value, commonly used in email templates.
+                    This should be a URL or IP address that points to the Culsight - Phishing Simulation phishing
+                    server and is reachable by the recipient.
+                </li>
+                <li><strong>Launch Date</strong> - This is the date that the campaign
+                    will begin. See Scheduling Campaigns for more information.</li>
+                <li><strong>Send Emails By</strong> - This is the date all emails will
+                    be sent by. See Scheduling Campaigns for more information.</li>
+                <li><strong>Sending Profile</strong> - This is the SMTP configuration to
+                    use when sending emails. This is created in the <a href="sending-profiles.html">Sending Profiles</a>
+                    section
+                    of the
+                    documentation.</li>
+                <li><strong>Groups</strong> - This defines which groups of recipients
+                    should be included in the campaign.</li>
+            </ul>
+            <h3 id="scheduling-campaigns">Scheduling Campaigns</h3>
+            <p>Culsight - Phishing Simulation supports scheduling campaigns, making it easy to plan
+                campaigns in advance. There are two fields to consider when scheduling
+                campaigns: the <strong>Launch Date</strong> and the <strong>Send Emails
+                    By</strong> date.</p>
+            <p>The <strong>Launch Date</strong> is when Culsight - Phishing Simulation should start sending
+                emails. By default, Culsight - Phishing Simulation assumes you want the campaign to be launched
+                immediately.</p>
+            <p>Culsight - Phishing Simulation also assumes that you want all emails to be sent immediately
+                after the campaign is launched, and to be sent as quickly as possible.
+                However, there are times where you may wish to spread the emails over a
+                period of time. Setting the <strong>Send Emails By</strong> date tells
+                Culsight - Phishing Simulation to spread emails evenly between the launch date and this
+                date.</p>
+            <h3 id="launching-the-campaign">Launching the Campaign</h3>
+            <p>After you have the campaign configuration ready to go, click the
+                “Launch Campaign” button, click through the confirmation message, and
+                you’re good to go! Depending on your scheduling settings, Culsight - Phishing Simulation will
+                either launch the campaign immediately or will schedule the campaign to
+                be launched at a later date.</p>
+            <h2 id="viewing-campaign-results">Viewing Campaign Results</h2>
+            <p>When a campaign is launched, you are automatically redirected to the
+                campaign results screen:</p>
+            <p><figure><img src="images/Viewingcampaign.png" width="900px"/></figure></p>
+            <p>On the results page, you will see overview information on the
+                campaign status as well as detailed results for each target.</p>
+            <h3 id="exporting-campaign-results">Exporting Campaign Results</h3>
+            <p>To export campaign results in CSV format, click the “Export CSV”
+                format and select the type of results you want to export:</p>
+            <ul>
+                <li>
+                    <p><strong>Results</strong> - The current status for each target in
+                        the campaign.</p>
+                    <p>Contains the following fields:</p>
+                    <pre
+                        class="text"><code>id, email, first_name, last_name, position, status, ip, latitude, longitude</code></pre>
+                </li>
+                <li>
+                    <p><strong>Raw Events</strong> - Contains a stream of events as they
+                        occurred during the campaign.</p>
+                </li>
+            </ul>
+            <h3 id="completing-a-campaign">Completing a Campaign</h3>
+            <p>To complete a campaign, click the “Complete” button and confirm that
+                you want to mark the campaign as completed.</p>
+            <h3 id="deleting-a-campaign">Deleting a Campaign</h3>
+            <p>To delete a campaign, click the “Delete” button and confirm that you
+                want to delete the campaign.</p>
+            <blockquote>
+                <p>Note: This <strong>cannot</strong> be undone, so be careful when
+                    deleting a campaign!</p>
+            </blockquote>
+            <h3 id="viewing-result-details">Viewing Result Details</h3>
+            <p>Culsight - Phishing Simulation makes it easy to view the campaign results in a timeline
+                format.</p>
+            <p>To view the timeline for each recipient, expand the row with the
+                recipient’s name.</p>
+            <p><figure><img src="images/Viewingresult.png" width="900px"/></figure></p>
+            <p>The results pane shows what a campaign recipient did, such as opening
+                the email, clicking the link, or attempting to submit data from the
+                landing page.</p>
+            <p>Culsight - Phishing Simulation also records information about the device that clicked the
+                link or submitted data. This data is parsed from the browser’s
+                user-agent string. The operating system and browser version is displayed
+                below the event details.</p>
+            <h4 id="viewing-captured-credentials">Viewing Captured Credentials</h4>
+            <p>If you selected the “Capture Credentials” option when building a
+                landing page, Culsight - Phishing Simulation displays the credentials in the results pane. To
+                view them, click the “View Details” dropdown which renders the captured
+                credentials in a table.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Culsight Phishing Simulator">
+    <meta name="author" content="Viir Phuria (https://github.com/Viir-Phuria)">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>Creating the Template | User Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Left Sidebar -->
+    <div class="navbar-left">
+        <img src="images/Culsight.png" alt="Culsight Logo" height="50px">
+        <h2>User Guide</h2>
+        <ul class="nav-links-left">
+            <li><a href="introduction.html">Introduction</a></li>
+            <li><a href="license.html">License</a></li>
+            <li><a href="what-is-culsight.html">What is Culsight - Phishing Simulation?</a></li>
+            <li><a href="installation.html">Installation</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li>
+                <button class="dropdown-toggle">Documentation 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="changing-user-settings.html">Changing Account Settings</a></li>
+                    <li><a href="groups.html">Groups</a></li>
+                    <li><a href="templates.html">Templates</a></li>
+                    <li><a href="attachments.html">Attachment Tracking</a></li>
+                    <li><a href="landing-pages.html">Landing Pages</a></li>
+                    <li><a href="sending-profiles.html">Sending Profiles</a></li>
+                    <li><a href="campaigns.html">Campaigns</a></li>
+                    <li><a href="using-the-api.html">Using the API</a></li>
+                    <li><a href="generating-reports.html">Generating Reports</a></li>
+                    <li><a href="email-reporting.html">Email Reporting</a></li>
+                    <li><a href="webhooks.html">Webhooks</a></li>
+                    <li><a href="user-management.html">User Management</a></li>
+                    <li><a href="logging.html">Logging</a></li>
+                </ul>
+            </li>
+            <li>
+                <button class="dropdown-toggle">Building Your First Campaign 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="morning-catch-corporation.html">Introducing the Morning Catch Corporation</a></li>
+                    <li><a href="creating-sending-profile.html">Creating the Sending Profile</a></li>
+                    <li><a href="importing-groups.html">Importing Groups</a></li>
+                    <li><a href="creating-template.html">Creating the Template</a></li>
+                    <li><a href="creating-landing-page.html">Creating the Landing Page</a></li>
+                    <li><a href="launching-campaign.html">Launching the Campaign</a></li>
+                </ul>
+            </li>
+            <li><a href="template-reference.html">Template Reference</a></li>
+            <li><a href="additional-references.html">Additional References</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+        <!-- Content -->
+        <div class="container">
+            <h1 id="creating-the-template">Creating the Template</h1>
+            <p>To create the template we will use for our Morning Catch campaign,
+                first navigate to the “Email Templates” page and click the “New
+                Template” button.</p>
+            <figure>
+                <img src="images/Template.png" height="700px" alt="New Template Dialog" />
+                <figcaption aria-hidden="true">New Template Dialog</figcaption>
+            </figure>
+            <p>We notice that Morning Catch comes with a webmail portal. Let’s craft
+                a simple template that suggests the user needs to go reset their
+                password. Obviously, this is a simple scenario, and by using the “Import
+                Email” feature, you can import existing emails directly into gophish for
+                a greater effect.</p>
+            <p>We’ll use the following subject line:</p>
+            <pre class="text"><code>Password Reset for {{.Email}}</code></pre>
+            <p>You’ll notice we used the <code>{{.Email}}</code> template value.
+                This will populate with the target’s email address when the emails are
+                sent. This is Gophish’s way to tailor emails to individuals to increase
+                the chance of success.</p>
+            <p>By clicking the “HTML” tab, we will see the editor we can use to
+                create our HTML content:</p>
+            <figure>
+                <img src="images/HTMLeditor.png" width="600px" alt="HTML Editor" />
+                <figcaption aria-hidden="true">HTML Editor</figcaption>
+            </figure>
+            <p>Since our content is pretty simple, we can just click the “Source”
+                button and be taken to the more visual editor, which will be enough for
+                our purposes:</p>
+            <figure>
+                <img src="images/Visualeditor.png" width="600px" alt="Visual Editor" />
+                <figcaption aria-hidden="true">Visual Editor</figcaption>
+            </figure>
+            <p>Our template will be simple for the sake of demonstration. I’ll start
+                by adding the message:</p>
+            <pre class="text"><code>{{.FirstName}},
+
+The password for {{.Email}} has expired. Please reset your password here.
+
+Thanks,
+Morning Catch IT Team</code></pre>
+            <p>Speaking of links, now we need to add our phishing link. Highlight
+                the word “here” and click the chain icon in the menu, exposing the
+                “Link” dialog. In this dialog, we’ll set the link to
+                <code>{{.URL}}</code>, another template value, so that our link is
+                automatically created and inserted into the email.
+            </p>
+            <figure>
+                <img src="images/Linkeditor.png" width="600px" alt="Link Menu" />
+                <figcaption aria-hidden="true">Link Menu</figcaption>
+            </figure>
+            <p>Finally, make sure the “Add Tracking Image” checkbox is checked, and
+                click “Save Template”.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

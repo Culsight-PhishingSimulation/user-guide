@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Culsight Phishing Simulator">
+    <meta name="author" content="Viir Phuria (https://github.com/Viir-Phuria)">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>Geeting Started | User Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Left Sidebar -->
+    <div class="navbar-left">
+        <img src="images/Culsight.png" alt="Culsight Logo" height="50px">
+        <h2>User Guide</h2>
+        <ul class="nav-links-left">
+            <li><a href="introduction.html">Introduction</a></li>
+            <li><a href="license.html">License</a></li>
+            <li><a href="what-is-culsight.html">What is Culsight - Phishing Simulation?</a></li>
+            <li><a href="installation.html">Installation</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li>
+                <button class="dropdown-toggle">Documentation 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="changing-user-settings.html">Changing Account Settings</a></li>
+                    <li><a href="groups.html">Groups</a></li>
+                    <li><a href="templates.html">Templates</a></li>
+                    <li><a href="attachments.html">Attachment Tracking</a></li>
+                    <li><a href="landing-pages.html">Landing Pages</a></li>
+                    <li><a href="sending-profiles.html">Sending Profiles</a></li>
+                    <li><a href="campaigns.html">Campaigns</a></li>
+                    <li><a href="using-the-api.html">Using the API</a></li>
+                    <li><a href="generating-reports.html">Generating Reports</a></li>
+                    <li><a href="email-reporting.html">Email Reporting</a></li>
+                    <li><a href="webhooks.html">Webhooks</a></li>
+                    <li><a href="user-management.html">User Management</a></li>
+                    <li><a href="logging.html">Logging</a></li>
+                </ul>
+            </li>
+            <li>
+                <button class="dropdown-toggle">Building Your First Campaign 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="morning-catch-corporation.html">Introducing the Morning Catch Corporation</a></li>
+                    <li><a href="creating-sending-profile.html">Creating the Sending Profile</a></li>
+                    <li><a href="importing-groups.html">Importing Groups</a></li>
+                    <li><a href="creating-template.html">Creating the Template</a></li>
+                    <li><a href="creating-landing-page.html">Creating the Landing Page</a></li>
+                    <li><a href="launching-campaign.html">Launching the Campaign</a></li>
+                </ul>
+            </li>
+            <li><a href="template-reference.html">Template Reference</a></li>
+            <li><a href="additional-references.html">Additional References</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+        <!-- Right Sidebar (dynamic per page) -->
+        <div class="navbar-right">
+            <ul class="nav-links-right">
+                <li><a href="#running-Culsight">Running Culsight - Phishing Simulation</a></li>
+                <li><a href="#logging-in">Logging In</a></li>
+            </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="container">
+            <h1 id="user-management">User Management</h1>
+            <p>Culsight - Phishing Simulation supports user accounts with different roles. Right now, we
+                offer two separate roles that can be assigned to users:</p>
+            <ul>
+                <li><strong>User</strong> - This role allows the user to do anything
+                    <em>except</em> system-level administrative tasks, such as managing
+                    users, managing webhooks, etc.
+                </li>
+                <li><strong>Admin</strong> - This is a system-level administrative role
+                    that has full permissions to manage the Culsight - Phishing Simulation installation</li>
+            </ul>
+            <p>To register new user accounts and manage existing ones, login as an
+                administrative user and navigate to the “User Management” page:</p>
+            <p><img src="../.gitbook/assets/screen-shot-2020-06-30-at-7.59.44-pm.png" /></p>
+            <h2 id="registering-a-new-user">Registering a New User</h2>
+            <p>To register a new user, click the <strong>“+ New User</strong>”
+                button, which will cause the following dialog to appear:</p>
+            <p><img src="../.gitbook/assets/screen-shot-2020-06-30-at-8.03.16-pm.png" /></p>
+            <p>In this form, you can choose the username, password, role, and
+                whether or not the user is required to reset their password when they
+                first login.</p>
+            <h2 id="delete-a-user">Delete a User</h2>
+            <p>To delete a user, click the red trash can icon next to the username
+                in the users list.</p>
+            <p>{% hint style=“info” %} You are required to have at least one user
+                with the “Admin” role at all times. If you try to delete the last
+                administrative user, Culsight - Phishing Simulation will return an error. {% endhint %}</p>
+            <h2 id="impersonate-a-user">Impersonate A User</h2>
+            <p>There may be cases where a user in Culsight - Phishing Simulation is running into issues and
+                would like help troubleshooting. To support this, Culsight - Phishing Simulation has the
+                ability to let administrators “impersonate” any user.</p>
+            <p>By clicking the yellow button next to the username in the users list,
+                you will automatically be logged into a session for the given user, and
+                interact with Culsight - Phishing Simulation on that user’s behalf.</p>
+            <p>When you are ready to return to your administrative session, you will
+                need to logout, and log back in using your administrative
+                credentials.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

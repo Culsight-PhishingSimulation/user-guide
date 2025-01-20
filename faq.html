@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Culsight Phishing Simulator">
+    <meta name="author" content="Viir Phuria (https://github.com/Viir-Phuria)">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>FAQs | User Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Left Sidebar -->
+    <div class="navbar-left">
+        <img src="images/Culsight.png" alt="Culsight Logo" height="50px">
+        <h2>User Guide</h2>
+        <ul class="nav-links-left">
+            <li><a href="introduction.html">Introduction</a></li>
+            <li><a href="license.html">License</a></li>
+            <li><a href="what-is-culsight.html">What is Culsight - Phishing Simulation?</a></li>
+            <li><a href="installation.html">Installation</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li>
+                <button class="dropdown-toggle">Documentation 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="changing-user-settings.html">Changing Account Settings</a></li>
+                    <li><a href="groups.html">Groups</a></li>
+                    <li><a href="templates.html">Templates</a></li>
+                    <li><a href="attachments.html">Attachment Tracking</a></li>
+                    <li><a href="landing-pages.html">Landing Pages</a></li>
+                    <li><a href="sending-profiles.html">Sending Profiles</a></li>
+                    <li><a href="campaigns.html">Campaigns</a></li>
+                    <li><a href="using-the-api.html">Using the API</a></li>
+                    <li><a href="generating-reports.html">Generating Reports</a></li>
+                    <li><a href="email-reporting.html">Email Reporting</a></li>
+                    <li><a href="webhooks.html">Webhooks</a></li>
+                    <li><a href="user-management.html">User Management</a></li>
+                    <li><a href="logging.html">Logging</a></li>
+                </ul>
+            </li>
+            <li>
+                <button class="dropdown-toggle">Building Your First Campaign 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="morning-catch-corporation.html">Introducing the Morning Catch Corporation</a></li>
+                    <li><a href="creating-sending-profile.html">Creating the Sending Profile</a></li>
+                    <li><a href="importing-groups.html">Importing Groups</a></li>
+                    <li><a href="creating-template.html">Creating the Template</a></li>
+                    <li><a href="creating-landing-page.html">Creating the Landing Page</a></li>
+                    <li><a href="launching-campaign.html">Launching the Campaign</a></li>
+                </ul>
+            </li>
+            <li><a href="template-reference.html">Template Reference</a></li>
+            <li><a href="additional-references.html">Additional References</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+        <!-- Right Sidebar (dynamic per page) -->
+        <div class="navbar-right">
+            <ul class="nav-links-right">
+                <li><a href="#unable-to-reach-admin-dashboard">Unable to Reach Admin Dashboard</a></li>
+                <li><a href="#how-to-bypass-spam-filters">How to Bypass Spam Filters</a></li>
+                <li><a href="#events-arent-showing-up-on-the-dashboard">Events Aren't Showing Up on the Dashboard</a></li>
+                <li><a href="#submitted-form-data-isnt-being-captured">Submitted Form Data Isn't Being Captured</a></li>
+            </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="container">
+            <h1 id="faq">FAQ</h1>
+            <h2 id="unable-to-reach-admin-dashboard">
+                Unable to Reach Admin Dashboard
+            </h2>
+            <p>
+                Let’s say you’ve just loaded up Culsight - Phishing Simulation, are trying to reach the admin
+                dashboard, and encounter this error in your logs:
+            </p>
+            <pre
+                class="text"><code>2018/11/15 21:42:22 http: TLS handshake error from 127.0.0.1:51419: tls: first record does not look like a TLS handshake</code></pre>
+            <p>
+                This means that you browsed to
+                <code>http://admin_server</code> instead of
+                <code>https://admin_server</code> (note the use of HTTPS).
+            </p>
+            <h2 id="how-to-bypass-spam-filters">How to Bypass Spam Filters</h2>
+            <p>
+                There is no fool proof way to bypass spam filters -
+                <strong>this is a good thing!</strong>
+            </p>
+            <p>
+                Something that might help increase deliverability is to set up your
+                email infrastructure correctly to support modern email authentication
+                protocols like SPF, DKIM, and DMARC. You can find more information
+                about this
+                <a href="https://www.trustedsec.com/blog/take-employees-phishing/">here</a>.
+            </p>
+            <p>
+                However, for tests that aim to measure how users respond to phishing
+                simulations, it’s recommend to temporarily whitelist the IP address of
+                the server running Culsight - Phishing Simulation.
+            </p>
+            <h2 id="events-arent-showing-up-on-the-dashboard">
+                Events Aren’t Showing Up on the Dashboard
+            </h2>
+            <p>
+                If you are seeing emails being sent successfully, but aren’t seeing
+                events show up on the dashboard, it likely means there is a
+                configuration error somewhere. You can follow these tips to help track
+                it down.
+            </p>
+            <p><strong>Check the Email Template</strong></p>
+            <p>
+                You want to make sure you’re using the <code>{{.URL}}</code> template
+                tag when creating links in your emails. Then, when you launch a
+                campaign, Culsight - Phishing Simulation will fill this in with whatever you use as the “URL”
+                field when creating the campaign.
+            </p>
+            <p>
+                A good way to see if this is working correctly is to send a test email
+                to yourself when building a campaign and looking at the link. It
+                should be the URL you used when creating the campaign with a unique
+                <code>rid</code> parameter. So, it should look like this:
+                <code>http://your_url/?rid=XXXXX</code>.
+            </p>
+            <p class="hint">
+                <strong>Tip</strong>: Don’t try to put your
+                Culsight - Phishing Simulation URL directly into a template. It’s very important to use the
+                <code>{{.URL}}</code> template tag, since that’s how Culsight - Phishing Simulation knows to
+                generate the unique URL for each recipient.
+            </p>
+            <p><strong>Check the Campaign URL</strong></p>
+            <p>
+                If the links in the email look good and you still don’t see events
+                showing up, then the next step is to make sure the URL you’re using
+                when building a campaign is correct.
+            </p>
+            <p>
+                When creating a campaign, the URL field
+                <strong>must point to the server running Culsight - Phishing Simulation and must be reachable by
+                    the person opening the emails.</strong>
+                This can either be the external IP address of the server, or a domain
+                name that has a DNS A record pointing to the server’s IP address.
+            </p>
+            <p class="hint">
+                <strong>Tip:</strong> Remember that the
+                campaign URL must be reachable by the recipients clicking the links.
+                If they can’t reach the Culsight - Phishing Simulation server, Culsight - Phishing Simulation can’t record those
+                events.
+            </p>
+            <p>
+                To test this, you can manually browse to the URL you’re expecting to
+                use in your campaign. Without any <code>rid</code> parameters
+                provided, you should see a basic
+                <code>404 page not found</code> error. You should also see a log
+                appear in your Culsight - Phishing Simulation terminal.
+            </p>
+            <p class="hint">
+                <strong>Tip:</strong> Remember that if your
+                Culsight - Phishing Simulation <code>phish_server</code> configuration is set to use HTTPS
+                that you need to include the URL in your campaign as
+                <code>https://your_url</code>.
+            </p>
+            <p>
+                Once manually browsing to your URL works, you can try to send a test
+                email to yourself when building a campaign. If it works, you should
+                see your landing page being returned. This means that the URL will
+                likely work when used in a campaign, assuming it is reachable by all
+                recipients.
+            </p>
+            <h2 id="submitted-form-data-isnt-being-captured">
+                Submitted Form Data Isn’t Being Captured
+            </h2>
+            <p>
+                To capture data submitted through a landing page, you need to create
+                an HTML <code>&lt;form&gt;</code> element on your landing page that
+                has a few specific properties:
+            </p>
+            <p>
+                Here is a minimal example <code>&lt;form&gt;</code> element which
+                captures data:
+            </p>
+            <pre class="markup"><code>&lt;form action=&quot;&quot; method=&quot;POST&quot;&gt;
+    &lt;input name=&quot;username&quot; type=&quot;text&quot; placeholder=&quot;username&quot; /&gt;
+    &lt;input name=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;password&quot; /&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;
+&lt;/form&gt;</code></pre>
+            <p>There are a few things to note about this form:</p>
+            <ul>
+                <li>
+                    The action is <code>""</code> so that form submissions are directed
+                    to your phishing page and, therefore, to your Culsight - Phishing Simulation server
+                </li>
+                <li>The form submission method is <code>POST</code></li>
+                <li>
+                    Each input which you expect to see in Culsight - Phishing Simulation has a
+                    <code>name</code> attribute
+                </li>
+            </ul>
+            <p>
+                Each of these should be checked when troubleshooting HTML forms that
+                don’t appear to be sending data correctly.
+            </p>
+            <p>
+                If you still aren’t seeing your form submitted correctly, you may need
+                to review and remove any Javascript on the page interfering with the
+                form submission.
+            </p>
+            <p>
+                Finally, ensure that when saving the landing page that you have both
+                the “Capture Submitted Data” and “Capture Passwords” (if appropriate)
+                options checked. Otherwise, Culsight - Phishing Simulation will remove the
+                <code>name</code> attributes from your inputs so they aren’t submitted
+                with the form.
+            </p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

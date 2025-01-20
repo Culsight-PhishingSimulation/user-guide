@@ -1,0 +1,399 @@
+/* General Styles */
+body {
+    margin-left: 250px;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+/* Left Sidebar (common for all pages) */
+.navbar-left {
+    width: 350px;
+    padding: 20px;
+    position: fixed; /* Fixed on the left side */
+    left: 0;
+    top: 0;
+    bottom: 0; /* Stretches the sidebar to full viewport height */
+    overflow-y: auto; /* Enables scrolling for overflow content */
+    z-index: 10;
+    background-color: #121212; /* Ensures consistent background color */
+}
+
+/* Left Sidebar Title */
+.navbar-left h2 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Left Sidebar Navigation Links */
+.nav-links-left {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-links-left li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background 0.3s;
+    font-size: 0.95em;
+}
+
+.nav-links-left li a:hover {
+    background-color: #333333;
+}
+
+/* Active Link Styling (Left Sidebar) */
+.nav-links-left li a.active {
+    background-color: #00796b;
+    font-weight: bold;
+}
+
+/* Dropdown menu styling */
+.nav-links-left {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Ensure spacing between list items */
+}
+
+.nav-links-left > li {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+/* Initially hidden dropdown menu */
+.dropdown {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #1e1e1e; /* Matches sidebar background */
+    border: 1px solid #333;
+    border-radius: 4px;
+    width: 100%; /* Matches the parent width */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    margin-top: 10px; /* Space between toggle and dropdown */
+}
+
+.dropdown li {
+    padding: 0px 10px;
+}
+
+.dropdown li a {
+    text-decoration: none;
+    color: #e0e0e0;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+.dropdown li a:hover {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* Dropdown Toggle Button */
+.dropdown-toggle {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+    padding: 0px 15px;
+    width: 100%;
+}
+
+.dropdown-toggle:hover {
+    background-color: #333333;
+    
+}
+
+/* Show dropdown when active */
+.show .dropdown {
+    display: block;
+}
+
+/* Ensure the dropdown pushes other content below */
+.nav-links-left > li.show {
+    margin-bottom: 0; /* Remove space between toggle and dropdown */
+}
+
+/* Right Sidebar (Dynamic, changes per page) */
+.navbar-right {
+    width: 350px;
+    padding: 20px;
+    position: fixed; /* Fixed on the right side */
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: calc(100vh - 50px); /* Adjust for the height of the top navbar */
+    overflow-y: auto;
+    z-index: 10;
+}
+
+/* Right Sidebar Title */
+.navbar-right h2 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Right Sidebar Navigation Links */
+.nav-links-right {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nav-links-right li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background 0.3s;
+    font-size: 0.95em;
+}
+
+.nav-links-right li a:hover {
+    background-color: #333333;
+}
+
+/* Active Link Styling (Right Sidebar) */
+.nav-links-right li a.active {
+    background-color: #00796b;
+    font-weight: bold;
+}
+
+/* Main Container for content */
+.main-container {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: center; /* Center child elements horizontally */
+    margin-left: -230px;
+}
+
+/* Main Content Area */
+.container {
+    flex: 1;
+    padding: 40px;
+    max-width: 900px;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+
+/* Typography */
+h1 {
+    --angle: 120deg; /* Gradient angle */
+    background: linear-gradient(
+        var(--angle), 
+        #2D60E9 20%, 
+        #CA2ABB 45%, 
+        #FC9914 80%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 10px;
+}
+
+p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #bdbdbd;
+}
+
+/* Absolute centering */
+.absolute-center {
+    position: relative; /* Ensures child positioning works */
+    height: 35vh; 
+}
+
+.absolute-center img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Adjusts the image position */
+}
+
+/* Code Blocks */
+code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #2b2b2b;
+    color: #f8f8f2;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+pre {
+    background-color: #2b2b2b;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 20px 0;
+    font-size: 1em;
+    border: 1px solid #3c3c3c;
+    position: relative; /* Make the pre container a relative positioning context */
+}
+
+/* Scrollbar for Right Sidebar */
+.navbar-right::-webkit-scrollbar {
+    width: 8px;
+}
+
+.navbar-right::-webkit-scrollbar-thumb {
+    background-color: #333333;
+    border-radius: 4px;
+}
+
+.navbar-right::-webkit-scrollbar-track {
+    background-color: #1f1f1f;
+}
+
+/* Scrollbar for Left Sidebar */
+.navbar-left::-webkit-scrollbar {
+    width: 8px;
+}
+
+.navbar-left::-webkit-scrollbar-thumb {
+    background-color: #333333;
+    border-radius: 4px;
+}
+
+.navbar-left::-webkit-scrollbar-track {
+    background-color: #1f1f1f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-left {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+    }
+
+    .navbar-right {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: auto;
+        right: auto;
+    }
+
+    .main-container {
+        flex-direction: column;
+        margin-right: 0;
+        margin-top: 0;
+    }
+
+    .container {
+        margin: 0;
+    }
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #3c3c3c;
+}
+
+table th {
+    background-color: #00796b;
+    color: white;
+}
+
+/* Striped Rows */
+table tr:nth-child(even) {
+    background-color: #333333;
+}
+
+table tr:nth-child(odd) {
+    background-color: #2b2b2b;
+}
+
+table tr:hover {
+    background-color: #444444;
+}
+
+/* Table Header */
+table th {
+    font-weight: bold;
+}
+
+/* Table Caption */
+table caption {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #fff;
+}
+.hint {
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #1a202c;
+    border: 1px solid rgba(0, 0, 0, 0.3); /* Dark border */
+    color: #e2e8f0; 
+    max-width: 960px;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+.hint p {
+    margin: 0;
+    color: #e2e8f0;
+}
+
+.hint strong {
+    font-weight: bold;
+}
+
+.hint a {
+    color: #3182ce;
+    text-decoration: underline;
+}
+
+a {
+    color: #e44eb9;
+    text-decoration: none;
+}
+
+figcaption {
+    text-align: center;
+    margin-top: 5px; 
+    font-size: 1rem;
+}
+
+figure {
+    display: flex;
+    flex-direction: column; /* Ensures figcaption appears below the image */
+    align-items: center;    /* Centers horizontally */
+    justify-content: center; /* Centers vertically (if needed) */
+    text-align: center;     /* Centers the text inside figcaption */
+}

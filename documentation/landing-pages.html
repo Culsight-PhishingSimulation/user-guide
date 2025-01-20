@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Culsight Phishing Simulator">
+    <meta name="author" content="Viir Phuria (https://github.com/Viir-Phuria)">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>Geeting Started | User Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Left Sidebar -->
+    <div class="navbar-left">
+        <img src="images/Culsight.png" alt="Culsight Logo" height="50px">
+        <h2>User Guide</h2>
+        <ul class="nav-links-left">
+            <li><a href="introduction.html">Introduction</a></li>
+            <li><a href="license.html">License</a></li>
+            <li><a href="what-is-culsight.html">What is Culsight - Phishing Simulation?</a></li>
+            <li><a href="installation.html">Installation</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li>
+                <button class="dropdown-toggle">Documentation 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="changing-user-settings.html">Changing Account Settings</a></li>
+                    <li><a href="groups.html">Groups</a></li>
+                    <li><a href="templates.html">Templates</a></li>
+                    <li><a href="attachments.html">Attachment Tracking</a></li>
+                    <li><a href="landing-pages.html">Landing Pages</a></li>
+                    <li><a href="sending-profiles.html">Sending Profiles</a></li>
+                    <li><a href="campaigns.html">Campaigns</a></li>
+                    <li><a href="using-the-api.html">Using the API</a></li>
+                    <li><a href="generating-reports.html">Generating Reports</a></li>
+                    <li><a href="email-reporting.html">Email Reporting</a></li>
+                    <li><a href="webhooks.html">Webhooks</a></li>
+                    <li><a href="user-management.html">User Management</a></li>
+                    <li><a href="logging.html">Logging</a></li>
+                </ul>
+            </li>
+            <li>
+                <button class="dropdown-toggle">Building Your First Campaign 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="morning-catch-corporation.html">Introducing the Morning Catch Corporation</a></li>
+                    <li><a href="creating-sending-profile.html">Creating the Sending Profile</a></li>
+                    <li><a href="importing-groups.html">Importing Groups</a></li>
+                    <li><a href="creating-template.html">Creating the Template</a></li>
+                    <li><a href="creating-landing-page.html">Creating the Landing Page</a></li>
+                    <li><a href="launching-campaign.html">Launching the Campaign</a></li>
+                </ul>
+            </li>
+            <li><a href="template-reference.html">Template Reference</a></li>
+            <li><a href="additional-references.html">Additional References</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+        <!-- Right Sidebar (dynamic per page) -->
+        <div class="navbar-right">
+            <ul class="nav-links-right">
+                <li><a href="#running-Culsight">Running Culsight - Phishing Simulation</a></li>
+                <li><a href="#logging-in">Logging In</a></li>
+            </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="container">
+            <h1 id="landing-pages">Landing Pages</h1>
+            <p>Landing pages are the actual HTML pages that are returned to the
+                users when they click the phishing links they receive.</p>
+            <p>Landing pages support templating, capturing credentials, and
+                redirecting users to another website after they submit their
+                credentials.</p>
+            <blockquote>
+                <p>Note: Landing pages are stored in the database. Culsight - Phishing Simulation generates a
+                    unique ID (called the <code>rid</code> parameter) for each recipient in
+                    a campaign, and uses this ID to dynamically load the correct landing
+                    page.</p>
+                <p>To preview what a landing page will look like, you will need to
+                    either use the HTML editor seen below, or launch a test campaign. Simply
+                    browsing directly to the Culsight - Phishing Simulation listener without specifying an
+                    <code>rid</code> parameter will display a generic 404 page.
+                </p>
+            </blockquote>
+            <p>To create a landing page, click on the “Landing Pages” entry in the
+                sidebar and click the “New Page” button.</p>
+            <figure>
+                <img src="http://imgur.com/Tg4sDId.png" alt="Landing Pages" />
+                <figcaption aria-hidden="true">Landing Pages</figcaption>
+            </figure>
+            <p>The landing page modal supports the same HTML WYSIWYG editor shown in
+                the Templates section.</p>
+            <h2 id="importing-a-site-from-url">Importing a Site From URL</h2>
+            <p>A powerful feature of Culsight - Phishing Simulation is the ability to import a site from a
+                URL. To import a site, click the “Import Site” button.</p>
+            <p><img src="http://imgur.com/uqxm6iB.png" /><br />
+                After entering the URL and clicking “Import”, you should see the HTML of
+                the URL populated into the editor.</p>
+            <h2 id="capturing-credentials">Capturing Credentials</h2>
+            <p>Culsight - Phishing Simulation makes it easy to capture credentials from the landing page.
+                To capture credentials, simply select the checkbox that says “Capture
+                Submitted Data”.</p>
+            <blockquote>
+                <p>Note: Credentials are stored <strong>in plaintext</strong>. If you
+                    don’t want to capture passwords, don’t select the “Capture Passwords”
+                    checkbox. Culsight - Phishing Simulation will still capture other text fields, such as
+                    usernames.</p>
+            </blockquote>
+            <h3 id="redirecting-users">Redirecting Users</h3>
+            <p>Red team assessments are all about preventing suspicion. To prevent
+                users from becoming suspicious after entering credentials, you may want
+                to redirect them to the original URL.</p>
+            <p>Culsight - Phishing Simulation makes it easy to redirect users after they submit
+                credentials. To redirect users, enter a URL in the “Redirect To:” text
+                field that appears after the “Capture Submitted Data” checkbox is
+                selected.</p>
+            <blockquote>
+                <p>Note: Make sure to include the full URL (including the scheme such as
+                    http:// or https://). Otherwise, browsers may interpret the URL as being
+                    relative to the Culsight - Phishing Simulation URL.</p>
+            </blockquote>
+            <h2 id="static-assets">Static Assets</h2>
+            <p>There may be times that you want to store assets such as HTML pages,
+                CSS/JS resources or other static files. To use these in Culsight - Phishing Simulation, just
+                move them under the <code>static/endpoint</code> directory. You can then
+                reference them using the URL
+                <code>http[s]://phishing_server/static/filename</code>. For more
+                background, see <a href="https://github.com/Culsight - Phishing Simulation/Culsight - Phishing Simulation/issues/220">this issue.</a>
+            </p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

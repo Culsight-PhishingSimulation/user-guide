@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Culsight Phishing Simulator">
+    <meta name="author" content="Viir Phuria (https://github.com/Viir-Phuria)">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>Installation | User Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Left Sidebar -->
+    <div class="navbar-left">
+        <img src="images/Culsight.png" alt="Culsight Logo" height="50px">
+        <h2>User Guide</h2>
+        <ul class="nav-links-left">
+            <li><a href="introduction.html">Introduction</a></li>
+            <li><a href="license.html">License</a></li>
+            <li><a href="what-is-culsight.html">What is Culsight - Phishing Simulation?</a></li>
+            <li><a href="installation.html">Installation</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li>
+                <button class="dropdown-toggle">Documentation 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="changing-user-settings.html">Changing Account Settings</a></li>
+                    <li><a href="groups.html">Groups</a></li>
+                    <li><a href="templates.html">Templates</a></li>
+                    <li><a href="attachments.html">Attachment Tracking</a></li>
+                    <li><a href="landing-pages.html">Landing Pages</a></li>
+                    <li><a href="sending-profiles.html">Sending Profiles</a></li>
+                    <li><a href="campaigns.html">Campaigns</a></li>
+                    <li><a href="using-the-api.html">Using the API</a></li>
+                    <li><a href="generating-reports.html">Generating Reports</a></li>
+                    <li><a href="email-reporting.html">Email Reporting</a></li>
+                    <li><a href="webhooks.html">Webhooks</a></li>
+                    <li><a href="user-management.html">User Management</a></li>
+                    <li><a href="logging.html">Logging</a></li>
+                </ul>
+            </li>
+            <li>
+                <button class="dropdown-toggle">Building Your First Campaign 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="morning-catch-corporation.html">Introducing the Morning Catch Corporation</a></li>
+                    <li><a href="creating-sending-profile.html">Creating the Sending Profile</a></li>
+                    <li><a href="importing-groups.html">Importing Groups</a></li>
+                    <li><a href="creating-template.html">Creating the Template</a></li>
+                    <li><a href="creating-landing-page.html">Creating the Landing Page</a></li>
+                    <li><a href="launching-campaign.html">Launching the Campaign</a></li>
+                </ul>
+            </li>
+            <li><a href="template-reference.html">Template Reference</a></li>
+            <li><a href="additional-references.html">Additional References</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+        <!-- Right Sidebar (dynamic per page) -->
+        <div class="navbar-right">
+            <ul class="nav-links-right">
+                <li><a href="#installing-Culsight-using-pre-built-binaries">Installing Culsight Using Pre-Built Binaries</a></li>
+                <li><a href="#installing-Culsight-from-source">Installing Culsight from Source</a></li>
+                <li><a href="#understanding-the-config.json">Understanding the config.json</a></li>
+                <li><a href="#exposing-Culsight - Phishing Simulation-to-the-internet">Exposing Culsight to the Internet</a></li>
+                <li><a href="#creating-ssl-certificate-and-private-keys">Creating SSL Certificate and Private Keys</a></li>
+                <li><a href="#using-MySQL">Using MySQL</a></li>
+                <li><a href="#update-config.json">Update config.json</a></li>
+                <li><a href="#update-mysql-config">Update MySQL Config</a></li>
+                <li><a href="#create-the-database">Create the Database</a></li>
+                <li><a href="#running-Culsight">Running Culsight</a></li>
+                <li><a href="#running-Culsight-as-a-service">Running Culsight as a Service</a></li>
+                <li><a href="#linux-distributions">Linux Distributions</a></li>
+                <li><a href="#windows">Windows</a></li>
+            </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="container">
+            <h1 id="installation">Installation</h1>
+            <h2 id="installing-Culsight-using-pre-built-binaries">Installing Culsight - Phishing Simulation
+                Using Pre-Built Binaries</h2>
+            <p>Culsight - Phishing Simulation is provided as a <a href="https://github.com/gophish/gophish/releases">pre-built binary</a>
+                for most operating systems. With this being the case, installation is as
+                simple as downloading the ZIP file containing the binary that is built
+                for your OS and extracting the contents.</p>
+            <h2 id="installing-Culsight-from-source">Installing Culsight - Phishing Simulation from
+                Source</h2>
+            <p>One of the major benefits of having written Culsight - Phishing Simulation in the Go
+                programming language is that it is extremely simple to build from
+                source. All you will need is the Go language and a C compiler (such as
+                gcc).</p>
+            <p>To install Culsight - Phishing Simulation, simply run
+                <code>go get github.com/Culsight - Phishing Simulation/Culsight - Phishing Simulation</code>. This downloads Culsight - Phishing Simulation
+                into your <code>$GOPATH</code>.<br />
+                Next, navigate to <code>$GOPATH/src/github.com/Culsight - Phishing Simulation/Culsight - Phishing Simulation</code>
+                and run the command <code>go build</code>. This builds a Culsight - Phishing Simulation binary
+                in the current directory.
+            </p>
+            <h2 id="understanding-the-config.json">Understanding the
+                <code>config.json</code>
+            </h2>
+            <p>There are some settings that are configurable via a file called
+                config.json, located in the Culsight - Phishing Simulation root directory. Here are some of the
+                options that you can set to your preferences:</p>
+            <table>
+                <colgroup>
+                    <col style="width: 33%" />
+                    <col style="width: 33%" />
+                    <col style="width: 33%" />
+                </colgroup>
+                <thead>
+                    <tr class="header">
+                        <th style="text-align: left;">Key</th>
+                        <th style="text-align: left;">Value (Default)</th>
+                        <th style="text-align: left;">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd">
+                        <td style="text-align: left;">admin_server.listen_url</td>
+                        <td style="text-align: left;">127.0.0.1:3333</td>
+                        <td style="text-align: left;">IP/Port of Culsight - Phishing Simulation admin server</td>
+                    </tr>
+                    <tr class="even">
+                        <td style="text-align: left;">admin_server.use_tls</td>
+                        <td style="text-align: left;">false</td>
+                        <td style="text-align: left;">Use TLS for admin server?</td>
+                    </tr>
+                    <tr class="odd">
+                        <td style="text-align: left;">admin_server.cert_path</td>
+                        <td style="text-align: left;">example.crt</td>
+                        <td style="text-align: left;">Path to SSL Cert</td>
+                    </tr>
+                    <tr class="even">
+                        <td style="text-align: left;">admin_server.key_path</td>
+                        <td style="text-align: left;">example.key</td>
+                        <td style="text-align: left;">Path to SSL Private Key</td>
+                    </tr>
+                    <tr class="odd">
+                        <td style="text-align: left;">admin_server.trusted_origins</td>
+                        <td style="text-align: left;">[]</td>
+                        <td style="text-align: left;">Comma separated list of trusted
+                            origins</td>
+                    </tr>
+                    <tr class="even">
+                        <td style="text-align: left;">phish_server.listen_url</td>
+                        <td style="text-align: left;">0.0.0.0:80</td>
+                        <td style="text-align: left;">IP/Port of the phishing server - this is
+                            where landing pages are hosted.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="hint"> <strong>Be careful:</strong> Since the
+                <code>config.json</code> file contains database credentials, you will
+                want to ensure it is only readable by the correct user. For Linux users,
+                you can do this using <code>chmod 640 config.json</code>.
+            </p>
+            <h3 id="exposing-Culsight-to-the-internet">Exposing Culsight - Phishing Simulation to the
+                Internet</h3>
+            <p>By default, the <code>phish_server.listen_url</code> is configured to
+                listen on all interfaces. This means that if the host Culsight - Phishing Simulation is running
+                on is exposed to the Internet (such as running on a VPS), the phishing
+                server will be exposed to the Internet.</p>
+            <p>If you also want the admin server to be accessible over the Internet,
+                you will need to change the entry for the
+                <code>admin_server.listen_url</code> to <code>0.0.0.0:3333</code>.
+            </p>
+            <p>The <code>phish_server.trusted_origins</code> option allows you to
+                add addresses that you expect incoming connections to come from. This is
+                helpful in cases where TLS termination is handled by a load balancer
+                upstream, rather than the application itself.</p>
+            <p class="hint"> <strong>Be careful</strong>: Exposing the
+                admin server to the Internet should only be used if needed. Before
+                exposing the admin server to the Internet, it’s <strong>highly
+                    recommended</strong> to change the default password.</p>
+            <h2 id="creating-ssl-certificate-and-private-keys">Creating SSL
+                Certificate and Private Keys</h2>
+            <blockquote>
+                <p>Note: As of 0.3, Culsight will by default create a self-signed
+                    certificate for the admin panel, so this steps would be optional.</p>
+            </blockquote>
+            <p>It’s a good idea to have the admin server available over HTTPS. While
+                automatic SSL cert/key generation will be included in a later release,
+                for now let’s take a look at how we can leverage openssl to generate our
+                cert and key for use with Culsight - Phishing Simulation (this assumes you already have openssl
+                installed!)</p>
+            <p>We can start the certificate and key generation process with the
+                following command:</p>
+            <pre
+                class="text"><code>openssl req -newkey rsa:2048 -nodes -keyout Culsight - Phishing Simulation.key -x509 -days 365 -out Culsight - Phishing Simulation.crt</code></pre>
+            <p>Then, all we have to do is answer the CSR process that asks for
+                details such as country, state, etc. Since this is a local self-signed
+                cert, these won’t matter too much to us.</p>
+            <p>This creates two files, Culsight - Phishing Simulation.key and Culsight - Phishing Simulation.crt. After moving
+                these files into the Culsight - Phishing Simulation root directory (in the same folder as
+                config.json), we can have the following in our config.json file:</p>
+            <pre class="text"><code>    &quot;admin_server&quot; : {
+        &quot;listen_url&quot; : &quot;127.0.0.1:3333&quot;,
+        &quot;use_tls&quot; : true,
+        &quot;cert_path&quot; : &quot;Culsight - Phishing Simulation.crt&quot;,
+        &quot;key_path&quot; : &quot;Culsight - Phishing Simulation.key&quot;
+    }</code></pre>
+            <p>Now when we launch Culsight - Phishing Simulation, you’ll connect to the admin server over
+                HTTPS and accept the self-signed certificate warning.</p>
+            <h2 id="using-mysql">Using MySQL</h2>
+            <p>The default database in Culsight - Phishing Simulation is SQLite. This is perfectly
+                functional, but some environments may benefit from leveraging a more
+                robust database such as MySQL.</p>
+            <p>Support for Mysql has been added as of 0.3-dev. To setup Culsight - Phishing Simulation for
+                Mysql, a couple extra steps are needed.</p>
+            <h3 id="update-config.json">Update <code>config.json</code></h3>
+            <p>First, change the entries in <code>config.json</code> to match your
+                deployment:</p>
+            <p>Example:</p>
+            <pre class="text"><code>&quot;db_name&quot; : &quot;mysql&quot;,
+&quot;db_path&quot; : &quot;root:@(:3306)/Culsight - Phishing Simulation?charset=utf8&amp;parseTime=True&amp;loc=UTC&quot;,</code></pre>
+            <p>The format for the <code>db_path</code> entry is
+                <code>username:password@(host:port)/database?charset=utf8&amp;parseTime=True&amp;loc=UTC</code>.
+            </p>
+            <h3 id="update-mysql-config">Update MySQL Config</h3>
+            <p>Culsight - Phishing Simulation uses a datetime format that is incompatible with MySQL &gt;=
+                5.7. To fix this, Add the following lines to the bottom of
+                <code>/etc/mysql/mysql.cnf</code>:
+            </p>
+            <pre
+                class="text"><code>[mysqld]
+sql_mode=ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION</code></pre>
+            <p>The above settings are the default modes for MySQL, but with
+                NO_ZERO_IN_DATE and NO_ZERO_DATE removed.</p>
+            <h3 id="create-the-database">Create the Database</h3>
+            <p>The last step you’ll need to do to leverage Mysql is to create the
+                <code>Culsight - Phishing Simulation</code> database. To do this, log into mysql and run the
+                command
+            </p>
+            <p><code>CREATE DATABASE Culsight - Phishing Simulation CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</code>.</p>
+            <p>After that, you’ll be good to go!</p>
+            <h2 id="running-Culsight">Running Culsight - Phishing Simulation</h2>
+            <p>Now that you have Culsight - Phishing Simulation installed, you’re ready to run the
+                software. To launch Culsight - Phishing Simulation, simply open a command shell and navigate to
+                the directory the Culsight - Phishing Simulation binary is located.</p>
+            <p>Then, execute the Culsight - Phishing Simulation binary. You will see some informational
+                output showing both the admin and phishing web servers starting up, as
+                well as the database being created. This output will tell you the port
+                numbers you can use to connect to the web interfaces.</p>
+            <pre
+                class="text"><code>Culsight - Phishing Simulation@Culsight - Phishing Simulation.dev:~/src/github.com/Culsight - Phishing Simulation/Culsight - Phishing Simulation$ ./Culsight - Phishing Simulation
+ time=&quot;2020-06-30T08:04:33-05:00&quot; level=warning msg=&quot;No contact address has been configured.&quot;
+ time=&quot;2020-06-30T08:04:33-05:00&quot; level=warning msg=&quot;Please consider adding a contact_address entry in your config.json&quot;
+ time=&quot;2020-06-30T08:04:33-05:00&quot; level=info msg=&quot;Please login with the username admin and the password 1178f855283d03d3&quot;
+ time=&quot;2020-06-30T08:04:33-05:00&quot; level=info msg=&quot;Starting phishing server at http://0.0.0.0:80&quot;
+ time=&quot;2020-06-30T08:04:33-05:00&quot; level=info msg=&quot;Starting IMAP monitor manager&quot;
+ time=&quot;2020-06-30T08:04:33-05:00&quot; level=info msg=&quot;Starting admin server at https://127.0.0.1:3333&quot;
+ time=&quot;2020-06-30T08:04:33-05:00&quot; level=info msg=&quot;Background Worker Started Successfully - Waiting for Campaigns&quot;
+ time=&quot;2020-06-30T08:04:33-05:00&quot; level=info msg=&quot;Starting new IMAP monitor for user admin&quot;</code></pre>
+            <h2 id="running-Culsight-as-a-service">Running Culsight - Phishing Simulation as a Service</h2>
+            <h3 id="linux-distributions">Linux Distributions</h3>
+            <p>To run Culsight - Phishing Simulation as a service in Linux distributions, you will need to
+                setup a service script. You can refer to <a href="https://github.com/Culsight - Phishing Simulation/Culsight - Phishing Simulation/issues/586">this
+                    Github
+                    issue</a> for an example implementation.</p>
+            <h3 id="windows">Windows</h3>
+            <p>To run Culsight - Phishing Simulation as a service in Windows, you can use <a href="http://nssm.cc/">nssm</a>.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

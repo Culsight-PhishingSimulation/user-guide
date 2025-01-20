@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Culsight Phishing Simulator">
+    <meta name="author" content="Viir Phuria (https://github.com/Viir-Phuria)">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>Geeting Started | User Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Left Sidebar -->
+    <div class="navbar-left">
+        <img src="images/Culsight.png" alt="Culsight Logo" height="50px">
+        <h2>User Guide</h2>
+        <ul class="nav-links-left">
+            <li><a href="introduction.html">Introduction</a></li>
+            <li><a href="license.html">License</a></li>
+            <li><a href="what-is-culsight.html">What is Culsight - Phishing Simulation?</a></li>
+            <li><a href="installation.html">Installation</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li>
+                <button class="dropdown-toggle">Documentation 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="changing-user-settings.html">Changing Account Settings</a></li>
+                    <li><a href="groups.html">Groups</a></li>
+                    <li><a href="templates.html">Templates</a></li>
+                    <li><a href="attachments.html">Attachment Tracking</a></li>
+                    <li><a href="landing-pages.html">Landing Pages</a></li>
+                    <li><a href="sending-profiles.html">Sending Profiles</a></li>
+                    <li><a href="campaigns.html">Campaigns</a></li>
+                    <li><a href="using-the-api.html">Using the API</a></li>
+                    <li><a href="generating-reports.html">Generating Reports</a></li>
+                    <li><a href="email-reporting.html">Email Reporting</a></li>
+                    <li><a href="webhooks.html">Webhooks</a></li>
+                    <li><a href="user-management.html">User Management</a></li>
+                    <li><a href="logging.html">Logging</a></li>
+                </ul>
+            </li>
+            <li>
+                <button class="dropdown-toggle">Building Your First Campaign 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="morning-catch-corporation.html">Introducing the Morning Catch Corporation</a></li>
+                    <li><a href="creating-sending-profile.html">Creating the Sending Profile</a></li>
+                    <li><a href="importing-groups.html">Importing Groups</a></li>
+                    <li><a href="creating-template.html">Creating the Template</a></li>
+                    <li><a href="creating-landing-page.html">Creating the Landing Page</a></li>
+                    <li><a href="launching-campaign.html">Launching the Campaign</a></li>
+                </ul>
+            </li>
+            <li><a href="template-reference.html">Template Reference</a></li>
+            <li><a href="additional-references.html">Additional References</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+        <!-- Right Sidebar (dynamic per page) -->
+        <div class="navbar-right">
+            <ul class="nav-links-right">
+                <li><a href="#running-Culsight">Running Culsight - Phishing Simulation</a></li>
+                <li><a href="#logging-in">Logging In</a></li>
+            </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="container">
+            <h1 id="webhooks">Webhooks</h1>
+            <p>Ever since Culsight - Phishing Simulation was launched, we’ve had the ability to fetch
+                campaign results via the API. But sometimes, you may want to have
+                campaign updates pushed directly to you as they happen.</p>
+            <p>To solve this problem, as of v0.9.0 we’ve added support for
+                webhooks.</p>
+            <p>When you configure a webhook, Culsight - Phishing Simulation will make (optionally signed)
+                HTTP requests to an endpoint you control. These requests include the
+                JSON body of the event that just happened- the exact same JSON that you
+                would normally receive via the API. This gives you real-time updates to
+                your campaign as they happen.</p>
+            <p>Culsight - Phishing Simulation supports multiple webhooks. Only users with the Admin role
+                are able to create webhooks by navigating to the “Webhooks” sidebar
+                entry and clicking the “New Webhook” button.</p>
+            <p><img src="../.gitbook/assets/screen-shot-2020-01-20-at-11.29.54-am.png" /></p>
+            <h3 id="validating-signatures">Validating Signatures</h3>
+            <p>Each webhook sent by Culsight - Phishing Simulation is signed using an optional secret. This
+                signature is computed over the entire request JSON body using the
+                HMAC-SHA256 hashing algorithm. This is a common practiced used elsewhere
+                by organizations like <a href="https://developer.github.com/webhooks/securing/">GitHub</a>, <a
+                    href="https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/guides/securing-webhooks">Twitter</a>,
+                <a href="https://www.twilio.com/docs/usage/webhooks/webhooks-security">Twilio</a>,
+                and more.
+            </p>
+            <p>This signature is sent in the <code>X-Culsight - Phishing Simulation-Signature</code>
+                header, which looks like this:</p>
+            <pre class="text"><code>POST /webhook HTTP/1.1
+Host: localhost:9999
+Accept-Encoding: gzip
+Content-Length: 226
+Content-Type: application/json
+User-Agent: Go-http-client/1.1
+X-Culsight - Phishing Simulation-Signature: sha256=2be52d4b83eb7f19b0ecc75ebd6441cefea5512443eb18d38a8beb2e7584a66c</code></pre>
+            <p>It’s highly recommended to both set a secure secret as well as
+                validating webhook signatures to ensure that events came from your
+                Culsight - Phishing Simulation instance.</p>
+            <h3 id="event-format">Event Format</h3>
+            <p>Each event has the following format:</p>
+            <pre class="text"><code>{
+    &quot;email&quot;: &quot;foo.bar@example.com&quot;,
+    &quot;time&quot;: &quot;2020-01-20T17:33:55.553906Z&quot;,
+    &quot;message&quot;: &quot;Email Opened&quot;,
+    &quot;details&quot;: &quot;&quot;
+}</code></pre>
+            <p>The following <code>message</code> values are supported:</p>
+            <table>
+                <colgroup>
+                    <col style="width: 50%" />
+                    <col style="width: 50%" />
+                </colgroup>
+                <thead>
+                    <tr class="header">
+                        <th style="text-align: left;">Message</th>
+                        <th style="text-align: left;">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd">
+                        <td style="text-align: left;">Error Sending Email</td>
+                        <td style="text-align: left;">Culsight - Phishing Simulation was unable to send the email to
+                            the recipient</td>
+                    </tr>
+                    <tr class="even">
+                        <td style="text-align: left;">Email Sent</td>
+                        <td style="text-align: left;">The email was successfully sent to the
+                            recipient</td>
+                    </tr>
+                    <tr class="odd">
+                        <td style="text-align: left;">Email Opened</td>
+                        <td style="text-align: left;">The recipient opened the email</td>
+                    </tr>
+                    <tr class="even">
+                        <td style="text-align: left;">Clicked Link</td>
+                        <td style="text-align: left;">The recipient clicked the link in the
+                            email</td>
+                    </tr>
+                    <tr class="odd">
+                        <td style="text-align: left;">Submitted Data</td>
+                        <td style="text-align: left;">The recipient submitted data to the
+                            landing page</td>
+                    </tr>
+                    <tr class="even">
+                        <td style="text-align: left;">Email Reported</td>
+                        <td style="text-align: left;">The recipient <a href="email-reporting.html">reported</a> the
+                            campaign email 🎉</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>The “Email Opened”, “Clicked Link”, and “Submitted Data” events also
+                include the <code>details</code> field which has the following
+                format:</p>
+            <pre class="text"><code>&quot;payload&quot;: {
+    &quot;rid&quot;: &quot;1234567&quot;,
+    &quot;browser&quot;: {
+        &quot;address&quot;: &quot;127.0.0.1&quot;,
+        &quot;user-agent&quot;: &quot;Mozilla/5.0 (Macintosh; PPC Mac OS X 10_10_4; rv:1.9.3.20) Gecko/2017-08-09 20:28:42 Firefox/3.8&quot;,
+    },
+    &quot;foo&quot;: [&quot;bar&quot;]
+}</code></pre>
+            <p>In this example, the <code>foo</code> field is data that was
+                submitted to the landing page. Each form element will have its own key
+                and list of values which will depend on the format of your landing
+                page.</p>
+            <h3 id="example-server">Example Server</h3>
+            <p>For an example on how to receive, validate, and parse webhook
+                messages from Culsight - Phishing Simulation, we’ve open-sourced an <a href="https://github.com/Culsight - Phishing Simulation/webhook">example
+                    server</a> you can
+                find <a href="https://github.com/Culsight - Phishing Simulation/webhook">on GitHub</a>.
+                However, since we follow the same common signing pattern used by other
+                webhook providers, most libraries should work with Culsight - Phishing Simulation as well.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

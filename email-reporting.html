@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Culsight Phishing Simulator">
+    <meta name="author" content="Viir Phuria (https://github.com/Viir-Phuria)">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>Email Reporting | User Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Left Sidebar -->
+    <div class="navbar-left">
+        <img src="images/Culsight.png" alt="Culsight Logo" height="50px">
+        <h2>User Guide</h2>
+        <ul class="nav-links-left">
+            <li><a href="introduction.html">Introduction</a></li>
+            <li><a href="license.html">License</a></li>
+            <li><a href="what-is-culsight.html">What is Culsight - Phishing Simulation?</a></li>
+            <li><a href="installation.html">Installation</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li>
+                <button class="dropdown-toggle">Documentation 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="changing-user-settings.html">Changing Account Settings</a></li>
+                    <li><a href="groups.html">Groups</a></li>
+                    <li><a href="templates.html">Templates</a></li>
+                    <li><a href="attachments.html">Attachment Tracking</a></li>
+                    <li><a href="landing-pages.html">Landing Pages</a></li>
+                    <li><a href="sending-profiles.html">Sending Profiles</a></li>
+                    <li><a href="campaigns.html">Campaigns</a></li>
+                    <li><a href="using-the-api.html">Using the API</a></li>
+                    <li><a href="generating-reports.html">Generating Reports</a></li>
+                    <li><a href="email-reporting.html">Email Reporting</a></li>
+                    <li><a href="webhooks.html">Webhooks</a></li>
+                    <li><a href="user-management.html">User Management</a></li>
+                    <li><a href="logging.html">Logging</a></li>
+                </ul>
+            </li>
+            <li>
+                <button class="dropdown-toggle">Building Your First Campaign 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="morning-catch-corporation.html">Introducing the Morning Catch Corporation</a></li>
+                    <li><a href="creating-sending-profile.html">Creating the Sending Profile</a></li>
+                    <li><a href="importing-groups.html">Importing Groups</a></li>
+                    <li><a href="creating-template.html">Creating the Template</a></li>
+                    <li><a href="creating-landing-page.html">Creating the Landing Page</a></li>
+                    <li><a href="launching-campaign.html">Launching the Campaign</a></li>
+                </ul>
+            </li>
+            <li><a href="template-reference.html">Template Reference</a></li>
+            <li><a href="additional-references.html">Additional References</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+        <!-- Right Sidebar (dynamic per page) -->
+        <div class="navbar-right">
+            <ul class="nav-links-right">
+                <li><a href="#the-importance-of-email-reporting">The Importance of Email Reporting</a></li>
+                <li><a href="#reporting-via-imap">Reporting via IMAP</a></li>
+                <li><a href="#advanced-settings">Advanced Settings</a></li>
+                <li><a href="#how-reporting-works-in-Culsight">How Reporting Works in Culsight - Phishing Simulation</a></li>
+            </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="container">
+            <h1 id="email-reporting">Email Reporting</h1>
+            <p>Culsight - Phishing Simulation supports the ability for users to report the simulated
+                phishing emails they receive. This is to encourage users to report
+                suspicious to their administrators, potentially catching malicious
+                emails earlier.</p>
+            <p>Right now, we only support this reporting feature on the
+                <strong>server side</strong> of things. While we don’t yet have actual
+                email extensions and add ons that can be used to facilitate this
+                reporting, as of v0.9.0 we do support email reporting via IMAP.
+            </p>
+            <h2 id="the-importance-of-email-reporting">The Importance of Email
+                Reporting</h2>
+            <p>When running phishing simulations, we often focus solely on how many
+                users clicked the links and submitted their credentials to the spoofed
+                page. However, I would argue that there’s just as much if not more value
+                in focusing on who reported the emails to their administrator.</p>
+            <p>Consider a simple scenario where we send out 100 simulated phishing
+                emails. Let’s look through two possible outcomes:</p>
+            <ul>
+                <li><strong>Outcome 1</strong> - In this outcome, only 1 user clicks the
+                    link and submits credentials. That’s great! However, no one reports the
+                    email. In this case, as an administrator our users were targeted by
+                    phishing and an attacker has a valid set of credentials, yet we don’t
+                    know anything has happened.</li>
+                <li><strong>Outcome 2</strong> - In this outcome, 50 users click the
+                    link and only 1 user reports it. In this case sure, more users clicked
+                    the link, but as an administrator we now know that a phishing campaign
+                    is in progress and we can start the incident response process.</li>
+            </ul>
+            <p>Reporting suspicious emails can help prevent the impact of a phishing
+                campaign. It’s recommended to build a culture that <strong>rewards the
+                    users who report emails</strong>. Even something small like an email to
+                that employee and their manager thanking them for their vigilance can go
+                a long ways. This gives positive feedback that will encourage users to
+                report more emails in the future.</p>
+            <h2 id="reporting-via-imap">Reporting via IMAP</h2>
+            <p>A common (and good!) practice for organizations is to create an email
+                address such as security@example.com and encourage employees to forward
+                any suspicious emails. This is a great way to work towards building a
+                collaborative relationship between the employee and security team.</p>
+            <p>As of v0.9.0, Culsight - Phishing Simulation has the ability to check a configured mailbox
+                via IMAP for campaign emails that have been reported. Once a campaign
+                email is found, that result is updated to show that the user reported
+                the email.</p>
+            <p>Each Culsight - Phishing Simulation user has the ability to configure their own IMAP
+                settings. These settings are found under “Account Settings &gt;
+                Reporting Settings”.</p>
+            <figure>
+                <img src="images/IMAP.png" width="900px"
+                    alt="IMAP Configuration Settings" />
+                <figcaption aria-hidden="true">IMAP Configuration Settings</figcaption>
+            </figure>
+            <p>The most common settings you’ll need are the IMAP hostname, port,
+                username, and password. It’s commonly the case that you’ll want to
+                enable TLS but this is something you should confirm with your email
+                provider.</p>
+            <h3 id="advanced-settings">Advanced Settings</h3>
+            <p>There is also a number of Advanced Settings that allow you to
+                configure which folder campaign emails will be listed in or how often
+                Culsight - Phishing Simulation should poll for new results. Additionally, you can restrict it
+                to only consider emails that have been reported from an address with
+                your organizations domain name. Finally, Culsight - Phishing Simulation can optionally delete
+                campaign emails after they have been reported.</p>
+            <figure>
+                <img src="images/AdvancedIMAP.png" width="900px" alt="Advanced IMAP Settings" />
+                <figcaption aria-hidden="true">Advanced IMAP Settings</figcaption>
+            </figure>
+            <p>After IMAP settings have been configured, you can either save them or
+                use the “Test Settings” button to confirm that Culsight - Phishing Simulation can establish an
+                IMAP connection.</p>
+            <h2 id="how-reporting-works-in-Culsight">How Reporting Works in
+                Culsight - Phishing Simulation</h2>
+            <p>Every email sent by Culsight - Phishing Simulation contains a link pointing to the <a href="landing-pages.html">Landing Page</a>
+                configured for the campaign.
+                This URL looks like this:</p>
+            <pre class="text"><code>http://phish_server/?rid=1234567</code></pre>
+            <p>The <code>rid</code> parameter specifies which recipient this link
+                was generated for. To report an email sent by Culsight - Phishing Simulation, an HTTP request
+                needs to be made to:</p>
+            <pre class="text"><code>http://phish_server/report?rid=1234567</code></pre>
+            <p>Sending this HTTP request is usually handled by a mail client
+                extension. As indicated earlier, we’re still working on getting those
+                developed. If you’re interested in helping make this happen, please <a
+                    href="https://github.com/Culsight - Phishing Simulation/Culsight - Phishing Simulation/issues">open an issue on
+                    Github!</a></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

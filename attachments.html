@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Culsight Phishing Simulator">
+    <meta name="author" content="Viir Phuria (https://github.com/Viir-Phuria)">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>Attachment Tracking | User Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Left Sidebar -->
+    <div class="navbar-left">
+        <img src="images/Culsight.png" alt="Culsight Logo" height="50px">
+        <h2>User Guide</h2>
+        <ul class="nav-links-left">
+            <li><a href="introduction.html">Introduction</a></li>
+            <li><a href="license.html">License</a></li>
+            <li><a href="what-is-culsight.html">What is Culsight - Phishing Simulation?</a></li>
+            <li><a href="installation.html">Installation</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li>
+                <button class="dropdown-toggle">Documentation 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="changing-user-settings.html">Changing Account Settings</a></li>
+                    <li><a href="groups.html">Groups</a></li>
+                    <li><a href="templates.html">Templates</a></li>
+                    <li><a href="attachments.html">Attachment Tracking</a></li>
+                    <li><a href="landing-pages.html">Landing Pages</a></li>
+                    <li><a href="sending-profiles.html">Sending Profiles</a></li>
+                    <li><a href="campaigns.html">Campaigns</a></li>
+                    <li><a href="using-the-api.html">Using the API</a></li>
+                    <li><a href="generating-reports.html">Generating Reports</a></li>
+                    <li><a href="email-reporting.html">Email Reporting</a></li>
+                    <li><a href="webhooks.html">Webhooks</a></li>
+                    <li><a href="user-management.html">User Management</a></li>
+                    <li><a href="logging.html">Logging</a></li>
+                </ul>
+            </li>
+            <li>
+                <button class="dropdown-toggle">Building Your First Campaign 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="morning-catch-corporation.html">Introducing the Morning Catch Corporation</a></li>
+                    <li><a href="creating-sending-profile.html">Creating the Sending Profile</a></li>
+                    <li><a href="importing-groups.html">Importing Groups</a></li>
+                    <li><a href="creating-template.html">Creating the Template</a></li>
+                    <li><a href="creating-landing-page.html">Creating the Landing Page</a></li>
+                    <li><a href="launching-campaign.html">Launching the Campaign</a></li>
+                </ul>
+            </li>
+            <li><a href="template-reference.html">Template Reference</a></li>
+            <li><a href="additional-references.html">Additional References</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+        <!-- Right Sidebar (dynamic per page) -->
+        <div class="navbar-right">
+            <ul class="nav-links-right">
+                <li><a href="#plain-text-examples">Plain Text Examples</a></li>
+                <li><a href="#office-document-examples">Office Document Examples</a></li>
+                <li><a href="#tracking-office-document-being-opened">Tracking Office document being Opened</a></li>
+                <li><a href="#tracking-office-document-macro-execution">Tracking Office document Macro execution</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="container">
+            <h1 id="attachment-tracking">Attachment Tracking</h1>
+            <p>It is possible to add Culsight - Phishing Simulation <a
+                    href="https://docs.getCulsight - Phishing Simulation.com/user-guide/template-reference">template
+                    variables</a> to the contents of certain attachment file types. The
+                following file types are supported:</p>
+            <table>
+                <colgroup>
+                    <col style="width: 30%" />
+                    <col style="width: 34%" />
+                    <col style="width: 34%" />
+                </colgroup>
+                <thead>
+                    <tr class="header">
+                        <th>Type</th>
+                        <th style="text-align: center;">Extension</th>
+                        <th style="text-align: center;">Sample Template</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd">
+                        <td>Word Document</td>
+                        <td style="text-align: center;">.docx</td>
+                        <td style="text-align: center;"><a
+                                href="example-attachments/Culsight - Phishing Simulation_word.docx">Culsight - Phishing Simulation_word.docx</a></td>
+                    </tr>
+                    <tr class="even">
+                        <td>Word Macro Enabled Document</td>
+                        <td style="text-align: center;">.docm</td>
+                        <td style="text-align: center;"><a
+                                href="example-attachments/Culsight - Phishing Simulation_word_macro.docm">Culsight - Phishing Simulation_word_macro.docm</a></td>
+                    </tr>
+                    <tr class="odd">
+                        <td>PowerPoint Presentation</td>
+                        <td style="text-align: center;">.pptx</td>
+                        <td style="text-align: center;"><a
+                                href="example-attachments/Culsight - Phishing Simulation_powerpoint.pptx">Culsight - Phishing Simulation_powerpoint.pptx</a></td>
+                    </tr>
+                    <tr class="even">
+                        <td>Excel Document</td>
+                        <td style="text-align: center;">.xlsx</td>
+                        <td style="text-align: center;"><a
+                                href="example-attachments/Culsight - Phishing Simulation_excel.xlsx">Culsight - Phishing Simulation_excel.xlsx</a></td>
+                    </tr>
+                    <tr class="odd">
+                        <td>Excel Macro Enabled Document</td>
+                        <td style="text-align: center;">.xlsm</td>
+                        <td style="text-align: center;"><a
+                                href="example-attachments/Culsight - Phishing Simulation_excel_macro.xlsm">Culsight - Phishing Simulation_excel_macro.xlsm</a>
+                        </td>
+                    </tr>
+                    <tr class="even">
+                        <td>Plain Text File</td>
+                        <td style="text-align: center;">.txt</td>
+                        <td style="text-align: center;"><a
+                                href="example-attachments/Culsight - Phishing Simulation_text.txt">Culsight - Phishing Simulation_text.txt</a></td>
+                    </tr>
+                    <tr class="odd">
+                        <td>HTML File</td>
+                        <td style="text-align: center;">.html</td>
+                        <td style="text-align: center;"><a
+                                href="example-attachments/Culsight - Phishing Simulation_html.html">Culsight - Phishing Simulation_html.html</a></td>
+                    </tr>
+                    <tr class="even">
+                        <td>Calendar File</td>
+                        <td style="text-align: center;">.ics</td>
+                        <td style="text-align: center;"><a
+                                href="example-attachments/Culsight - Phishing Simulation_invite.ics">Culsight - Phishing Simulation_invite.ics</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Any template variables placed inside these documents will be
+                converted to the appropriate values when a campaign is launched. Adding
+                tracking images to Office documents can allow notification that a
+                document has been opened or that macros have been enabled.</p>
+            <p>If you just want to get up and running, using the above templates is
+                probably for you. Keep reading below if you’re interested how these
+                examples were created (specifically the Office documents which are more
+                involved).</p>
+            <hr />
+            <h2 id="plain-text-examples">Plain Text Examples</h2>
+            <p>Below is a .txt file with several variables:</p>
+            <p><code>foo.txt</code></p>
+            <pre><code>Hello {{.FirstName}},
+This is a plain text file that was sent to {{.Email}}. If you could be so kind as to copy and paste this URL into your browser: {{.URL}}</code></pre>
+            <p>As can be seen this is not immediately useful, but perhaps there are
+                some scenarios where templating a plain text file is useful. Below is a
+                portion of of an .ics calendar invitation file:</p>
+            <p><code>invite.ics</code></p>
+            <pre><code>BEGIN:VCALENDAR
+DTSTAMP:20210306T182251Z
+DTSTART;TZID=Europe/London:20210306T183000
+DTEND;TZID=Europe/London:20210306T190000
+SUMMARY:Culsight - Phishing Simulation Test Calendar
+TZID:Europe/London
+DESCRIPTION:Glenn  is inviting you to a Zoom meeting.
+ n\nJoin Zoom Meeting\n{{.URL}}
+LOCATION:{{.URL}}
+END:VCALENDAR</code></pre>
+            <h2 id="office-document-examples">Office Document Examples</h2>
+            <p>A more useful use case for this functionality is likely to be the
+                tracking of Microsoft Office documents, specifically the conditions of
+                (i) opening a document and (ii) enabling macros. Culsight - Phishing Simulation supports
+                several Office formats, but the approach is largely the same.</p>
+            <h3 id="tracking-office-document-being-opened">Tracking Office document
+                being Opened</h3>
+            <p>We can add the <code>{{.TrackingURL}}</code> variable to an Office
+                document as a “linked image”. When the document is opened
+                Word/Excel/PowerPoint will try load the image, thereby reaching out to
+                the Culsight - Phishing Simulation server and marking the document as opened (ensure the
+                Tracking URL is not included in the Email, as at this stage there is
+                only one endpoint to indicated ‘Opened’). The following steps can be
+                used to achieve this:</p>
+            <ol type="1">
+                <li>Create a new Document</li>
+                <li>Select the <code>Insert</code> tab and then click
+                    <code>Quick Parts</code> and then <code>Field</code>
+                </li>
+            </ol>
+            <p><img src="images/insert_field.png" /></p>
+            <ol start="3" type="1">
+                <li>Scroll down on the left and select <code>IncludePicture</code>. In
+                    the Filename or URL input box enter <code>{{.TrackingURL}}</code> and
+                    tick the <code>Data not stored with document</code> box on the right
+                    (alternatively, in the Word Document press Alt+F9 to toggle Field Codes
+                    and paste in <code>INCLUDEPICTURE  "{{.TrackingURL}}" \d</code>):</li>
+            </ol>
+            <p><img src="images/include_picture.png" width="900px" /></p>
+            <ol start="4" type="1">
+                <li>If you want to include template variables (e.g
+                    <code>{{.FirstName}}</code>) in the body of the Word document you will
+                    need to disable grammar and spelling checking (otherwise Word inserts
+                    proofErrors in the middle of the variable names). Select File &gt;
+                    Options &gt; Proofing and deselect
+                    <code>Check spelling as you type</code> and
+                    <code>Mark grammar errors as you type</code>.
+                </li>
+            </ol>
+            <p>The image below depicts the template Word file on the left, and the
+                result after passing through Culsight - Phishing Simulation as a campaign attachment and being
+                opened by a target user on the right.</p>
+            <p><img src="images/document_templated.png" width="900px" /></p>
+            <h3 id="tracking-office-document-macro-execution">Tracking Office
+                document Macro execution</h3>
+            <p>To track if macros have been enabled by a user we need macro code
+                that reaches out to a Culsight - Phishing Simulation Template Variable
+                (e.g. <code>{{.TrackerURL}}</code>) or hits a Culsight - Phishing Simulation endpoint
+                (e.g. <code>{{.URL}}</code>). Focusing on the latter option, we would
+                want the macro code to reach out to, for example,
+                https://myphishingserver.com/?rid=aBC12345. There are many different
+                ways to handle this, but simply inserting some Culsight - Phishing Simulation variables into
+                the macro code doesn’t work, as it’s non-trivial to programatically edit
+                macro code (it’s packaged up in a binary format). The solution we came
+                up with was to insert a text box in the document with the variables, and
+                reference that text box from the macro code. The steps involved are:</p>
+            <ol type="1">
+                <li>Create a new Document</li>
+                <li>Create a textbox with contents <code>{{.URL}}</code></li>
+                <li>Name the textbox “<code>urlbox</code>” by selecting the textbox and
+                    following the instructions below:</li>
+            </ol>
+            <p>Windows: Home &gt; Editing &gt; Select &gt; Selection Pane</p>
+            <p>Mac: Shape Format &gt; Arrange &gt; Selection Pane</p>
+            <ol start="4" type="1">
+                <li>Add the following macro code to the document (F11):</li>
+            </ol>
+            <pre><code>Sub urlfetch()
+ Dim shp As Shape
+
+ For Each shp In ActiveDocument.Shapes
+    If shp.Name = &quot;urlbox&quot; Then
+        URL = shp.TextFrame.TextRange.Text
+        ActiveDocument.FollowHyperlink Address:=URL
+    End If
+ Next
+End Sub
+
+Public Sub AutoOpen()
+    urlfetch
+End Sub
+</code></pre>
+            <p>or for Excel:</p>
+            <pre><code>Sub urlfetch()
+  For Each shp In ActiveSheet.Shapes
+    If shp.Name = &quot;urlbox&quot; Then
+        Url = shp.TextFrame2.TextRange.Text
+        FollowHyperlink (Url)
+    End If
+  Next
+End Sub
+
+Public Sub Workbook_Open()
+    urlfetch
+End Sub</code></pre>
+            <ol start="4" type="1">
+                <li>Save and Exit</li>
+            </ol>
+            <p>When the document is opened the user will be prompted to enable
+                macros. If they do, the <code>{{.URL}}</code> will be opened. This
+                allows the user to be presented with a page informing them that they
+                have fallen victim to a phishing campaign.</p>
+            <p>(Note: In the future it’d be neater to use the
+                <code>Application.Documents.CanCheckOut (URL)</code> method, but this is
+                a HEAD request which requires some modification of the Culsight - Phishing Simulation Link
+                Clicked code)
+            </p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

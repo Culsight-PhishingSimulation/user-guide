@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Culsight Phishing Simulator">
+    <meta name="author" content="Viir Phuria (https://github.com/Viir-Phuria)">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>Templates | User Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Left Sidebar -->
+    <div class="navbar-left">
+        <img src="images/Culsight.png" alt="Culsight Logo" height="50px">
+        <h2>User Guide</h2>
+        <ul class="nav-links-left">
+            <li><a href="introduction.html">Introduction</a></li>
+            <li><a href="license.html">License</a></li>
+            <li><a href="what-is-culsight.html">What is Culsight - Phishing Simulation?</a></li>
+            <li><a href="installation.html">Installation</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li>
+                <button class="dropdown-toggle">Documentation 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="changing-user-settings.html">Changing Account Settings</a></li>
+                    <li><a href="groups.html">Groups</a></li>
+                    <li><a href="templates.html">Templates</a></li>
+                    <li><a href="attachments.html">Attachment Tracking</a></li>
+                    <li><a href="landing-pages.html">Landing Pages</a></li>
+                    <li><a href="sending-profiles.html">Sending Profiles</a></li>
+                    <li><a href="campaigns.html">Campaigns</a></li>
+                    <li><a href="using-the-api.html">Using the API</a></li>
+                    <li><a href="generating-reports.html">Generating Reports</a></li>
+                    <li><a href="email-reporting.html">Email Reporting</a></li>
+                    <li><a href="webhooks.html">Webhooks</a></li>
+                    <li><a href="user-management.html">User Management</a></li>
+                    <li><a href="logging.html">Logging</a></li>
+                </ul>
+            </li>
+            <li>
+                <button class="dropdown-toggle">Building Your First Campaign 🔽</button>
+                <ul class="dropdown">
+                    <li><a href="morning-catch-corporation.html">Introducing the Morning Catch Corporation</a></li>
+                    <li><a href="creating-sending-profile.html">Creating the Sending Profile</a></li>
+                    <li><a href="importing-groups.html">Importing Groups</a></li>
+                    <li><a href="creating-template.html">Creating the Template</a></li>
+                    <li><a href="creating-landing-page.html">Creating the Landing Page</a></li>
+                    <li><a href="launching-campaign.html">Launching the Campaign</a></li>
+                </ul>
+            </li>
+            <li><a href="template-reference.html">Template Reference</a></li>
+            <li><a href="additional-references.html">Additional References</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+        <!-- Right Sidebar (dynamic per page) -->
+        <div class="navbar-right">
+            <ul class="nav-links-right">
+                <li><a href="#creating-templates">Creating Templates</a></li>
+                <li><a href="#using-the-html-editor">Using the HTML Editor</a></li>
+                <li><a href="#importing-an-email">Importing an Email</a></li>
+            </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="container">
+            <h1 id="templates">Templates</h1>
+            <p>A “Template” is the content of the emails that are sent to targets.
+                They can be imported from an existing email, or created from scratch.
+                They also support sending attachments.</p>
+            <p>Additionally, templates can contain tracking images so that Culsight - Phishing Simulation
+                knows when the user opens the email.</p>
+            <h2 id="creating-templates">Creating Templates</h2>
+            <p>To create a template, first navigate to the “Email Templates” page
+                and click the “New Template” button.</p>
+            <figure>
+                <img src="images/Template.png" height="700px" alt="New Template Dialog" />
+                <figcaption aria-hidden="true">New Template Dialog</figcaption>
+            </figure>
+            <h3 id="using-the-html-editor">Using the HTML Editor</h3>
+            <p>A powerful feature of Culsight - Phishing Simulation is the HTML editor. To switch between
+                the HTML source code and the visual view, click the “Source” button.</p>
+            <figure>
+                <img src="images/HTMLeditor.png" width="600px" alt="HTML Editor" />
+                <figcaption aria-hidden="true">HTML Editor</figcaption>
+            </figure>
+            <p>This is helpful to ensure that the email received by the user is
+                pixel-perfect.</p>
+            <h3 id="importing-an-email">Importing an Email</h3>
+            <p>Culsight - Phishing Simulation supports the ability to import an email from the raw content.
+                To do this, click the “Import Email” button and paste in the original
+                email content. This content is usually found through the “View Original”
+                feature of many mail clients:</p>
+            <figure>
+                <img src="images/Importemail.png" width="600px" alt="Import Email" />
+                <figcaption aria-hidden="true">Import Email</figcaption>
+            </figure>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
